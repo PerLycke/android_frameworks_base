@@ -28,6 +28,7 @@ public class QSConstants {
     public static final String TILE_AIRPLANE = "airplane";
     public static final String TILE_ROTATION = "rotation";
     public static final String TILE_FLASHLIGHT = "flashlight";
+    public static final String TILE_EXPANDED_DESKTOP = "expanded_desktop";
     public static final String TILE_LOCATION = "location";
     public static final String TILE_CAST = "cast";
     public static final String TILE_HOTSPOT = "hotspot";
@@ -45,6 +46,8 @@ public class QSConstants {
     public static final String TILE_LTE = "lte";
     public static final String TILE_VISUALIZER = "visualizer";
     public static final String TILE_SCREEN_TIMEOUT = "screen_timeout";
+    public static final String TILE_SCREENSHOT = "screenshot";
+    public static final String TILE_SCREEN_OFF = "screen_off";
     public static final String TILE_LIVE_DISPLAY = "live_display";
     public static final String TILE_USB_TETHER = "usb_tether";
     public static final String TILE_HEADS_UP = "heads_up";
@@ -67,6 +70,7 @@ public class QSConstants {
         STATIC_TILES_AVAILABLE.add(TILE_AIRPLANE);
         STATIC_TILES_AVAILABLE.add(TILE_ROTATION);
         STATIC_TILES_AVAILABLE.add(TILE_FLASHLIGHT);
+        STATIC_TILES_AVAILABLE.add(TILE_EXPANDED_DESKTOP);
         STATIC_TILES_AVAILABLE.add(TILE_LOCATION);
         STATIC_TILES_AVAILABLE.add(TILE_CAST);
         STATIC_TILES_AVAILABLE.add(TILE_INVERSION);
@@ -85,6 +89,8 @@ public class QSConstants {
         STATIC_TILES_AVAILABLE.add(TILE_LTE);
         STATIC_TILES_AVAILABLE.add(TILE_VISUALIZER);
         STATIC_TILES_AVAILABLE.add(TILE_SCREEN_TIMEOUT);
+        STATIC_TILES_AVAILABLE.add(TILE_SCREENSHOT);
+        STATIC_TILES_AVAILABLE.add(TILE_SCREEN_OFF);
         STATIC_TILES_AVAILABLE.add(TILE_LIVE_DISPLAY);
         STATIC_TILES_AVAILABLE.add(TILE_USB_TETHER);
         STATIC_TILES_AVAILABLE.add(TILE_HEADS_UP);
