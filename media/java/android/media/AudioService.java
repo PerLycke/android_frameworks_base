@@ -644,6 +644,10 @@ public class AudioService extends IAudioService.Stub {
         mMasterVolumeRamp = context.getResources().getIntArray(
                 com.android.internal.R.array.config_masterVolumeRamp);
 
+        // read this in before readPersistedSettings() because updateStreamVolumeAlias needs it
+        mLinkNotificationWithVolume = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+
         // must be called before readPersistedSettings() which needs a valid mStreamVolumeAlias[]
         // array initialized by updateStreamVolumeAlias()
         updateStreamVolumeAlias(false /*updateVolumes*/);
@@ -2077,6 +2081,15 @@ public class AudioService extends IAudioService.Stub {
                                 entry.setValue(10);
                             }
                         }
+                        // Persist volume for stream when ringer mode changed
+                        final int device = getDeviceForStream(streamType);
+                        sendMsg(mAudioHandler,
+                            MSG_PERSIST_VOLUME,
+                            SENDMSG_QUEUE,
+                            device,
+                            0,
+                            mStreamStates[streamType],
+                            PERSIST_DELAY);
                     }
                 }
                 mStreamStates[streamType].mute(null, false);
@@ -4640,8 +4653,8 @@ public class AudioService extends IAudioService.Stub {
                         Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
                 if (linkNotificationWithVolume != mLinkNotificationWithVolume) {
                     mLinkNotificationWithVolume = linkNotificationWithVolume;
-                    updateStreamVolumeAlias(true);
                     createStreamStates();
+                    updateStreamVolumeAlias(true);
                 }
                 mVolumeKeysControlRingStream = Settings.System.getIntForUser(mContentResolver,
                         Settings.System.VOLUME_KEYS_CONTROL_RING_STREAM, 1,
@@ -4966,7 +4979,9 @@ public class AudioService extends IAudioService.Stub {
     {
         boolean launchPlayer = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.HEADSET_CONNECT_PLAYER, 0, UserHandle.USER_CURRENT) != 0;
-        if (launchPlayer) {
+
+        TelecomManager tm = (TelecomManager) mContext.getSystemService(Context.TELECOM_SERVICE);
+        if (launchPlayer && !tm.isInCall()) {
             Intent playerIntent = new Intent(Intent.ACTION_MAIN);
             playerIntent.addCategory(Intent.CATEGORY_APP_MUSIC);
             playerIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
