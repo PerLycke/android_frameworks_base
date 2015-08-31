@@ -64,6 +64,7 @@ import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.VisualizerTile;
 import com.android.systemui.qs.tiles.ScreenOffTile;
+import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.ScreenTimeoutTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.WifiTile;
@@ -373,6 +374,8 @@ public class QSTileHost implements QSTile.Host {
                 return new VisualizerTile(this);
             case QSConstants.TILE_SCREEN_OFF:
                 return new ScreenOffTile(this);
+            case QSConstants.TILE_VOLUME:
+                return new VolumeTile(this);
             case QSConstants.TILE_SCREEN_TIMEOUT:
                 return new ScreenTimeoutTile(this);
             case QSConstants.TILE_SCREENSHOT:
