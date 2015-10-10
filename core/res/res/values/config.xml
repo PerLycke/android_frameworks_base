@@ -2020,6 +2020,9 @@
         <item>power</item>
         <item>bugreport</item>
         <item>users</item>
+        <item>power</item>
+        <item>reboot</item>
+        <item>airplane</item>
     </string-array>
 
     <!-- Number of milliseconds to hold a wake lock to ensure that drawing is fully
