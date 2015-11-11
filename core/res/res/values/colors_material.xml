@@ -76,10 +76,10 @@
     <color name="material_grey_50">#fffafafa</color>
 
     <color name="material_deep_teal_200">#ff80cbc4</color>
-    <color name="material_deep_teal_500">#ff009688</color>
+    <color name="material_deep_teal_500">#ff319fa7</color>
 
     <color name="material_blue_grey_800">#ff37474f</color>
-    <color name="material_blue_grey_900">#ff263238</color>
+    <color name="material_blue_grey_900">#ff2a2c2d</color>
     <color name="material_blue_grey_950">#ff21272b</color>
 
     <!-- Time picker defaults when no theme is set -->
@@ -118,5 +118,9 @@
 
     <color name="datepicker_default_view_animator_color_material_light">#fff2f2f2</color>
     <color name="datepicker_default_view_animator_color_material_dark">#ff303030</color>
+
+    <color name="statusbar">#ff1a1a1c</color>
+    <color name="actionbar">#ff28282b</color>
+    <color name="setting_icons">#ff6A6A6A</color>
 
 </resources>

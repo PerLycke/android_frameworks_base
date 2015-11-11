@@ -1277,13 +1277,15 @@ please see themes_device_defaults.xml.
     </style>
 
     <!-- Default theme for Settings and activities launched from Settings. -->
-    <style name="Theme.Material.Settings" parent="Theme.Material.Light.DarkActionBar">
-        <item name="colorPrimary">@color/material_blue_grey_900</item>
-        <item name="colorPrimaryDark">@color/material_blue_grey_950</item>
+    <style name="Theme.Material.Settings" parent="@android:style/Theme.Material.Light.DarkActionBar">
+        <item name="android:colorBackground">@*android:color/white</item>
+        <item name="android:colorPrimary">@color/actionbar</item>
+        <item name="android:colorPrimaryDark">@color/statusbar</item>
+        <item name="android:colorAccent">@color/setting_icons</item>
 
-        <item name="presentationTheme">@style/Theme.Material.Settings.Dialog.Presentation</item>
-        <item name="searchDialogTheme">@style/Theme.Material.Settings.SearchBar</item>
-        <item name="panelMenuListTheme">@style/Theme.Material.Settings.CompactMenu</item>
+        <item name="android:dialogTheme">@*android:style/Theme.Material.Settings.Dialog</item>
+        <item name="android:alertDialogTheme">@*android:style/Theme.Material.Settings.Dialog.Alert</item>
+        <item name="android:presentationTheme">@*android:style/Theme.Material.Settings.Dialog.Presentation</item>
     </style>
 
     <!-- Default theme for Settings and activities launched from Settings. -->
